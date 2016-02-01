@@ -15,6 +15,7 @@
   "author": "Serge and Pavel",
   "license": "MIT",
   "dependencies": {
+    "browserchannel": "^2.0.0",
     "koa-router": "^5.3.0",
     "koa-websocket": "^1.1.0"
   }
