@@ -1,0 +1,21 @@
+{
+  "name": "racer-transport-koa",
+  "version": "0.0.1",
+  "description": "racer-highway replacement for koa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "racer.js",
+    "koa",
+    "socket.io",
+    "browserchanel"
+  ],
+  "author": "Serge and Pavel",
+  "license": "MIT",
+  "dependencies": {
+    "koa-router": "^5.3.0",
+    "koa-websocket": "^1.1.0"
+  }
+}
