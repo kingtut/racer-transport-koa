@@ -20,7 +20,7 @@ Transport.prototype.connect = function( app ){
    router.get( this.options.channelName, function *( next ){
       var client = this.websocket;
       var stream = new SocketStream( client );
-      if(this.session) stream.session = this.session;
+      if(this.session) client.session = this.session;
       racerStore.listen( stream, client.upgradeReq );
 
       if (!self.options.noPing){
