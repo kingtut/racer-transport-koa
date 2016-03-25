@@ -62,10 +62,13 @@ Transport.prototype.connect = function( app ){
     racerStore.use('connect',  function (shareRequest, next) {
       var agent = shareRequest.agent;
       var client = agent && agent.stream && agent.stream.client;
+      var req = shareRequest.req;
 
       if (!agent.connectSession) {
       	if(client && client.session) {
           agent.connectSession = client.session;
+        } else if(req && req.session) {
+        	agent.connectSession = req.session;
         } else {
         	agent.connectSession = {};
         }
