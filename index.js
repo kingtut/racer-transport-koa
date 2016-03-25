@@ -56,6 +56,24 @@ Transport.prototype.connect = function( app ){
       yield BCmiddleware.bind(null, this.req, this.res);
       yield next;
    });
+
+  // session to agent
+  if (sessionEnable) {
+    racerStore.use('connect',  function (shareRequest, next) {
+      var agent = shareRequest.agent;
+      var client = agent && agent.stream && agent.stream.client;
+
+      if (!agent.connectSession) {
+      	if(client && client.session) {
+          agent.connectSession = client.session;
+        } else {
+        	agent.connectSession = {};
+        }
+      }
+      next();
+    });
+  }
+
 };
 
 module.exports = Transport;
