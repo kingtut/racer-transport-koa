@@ -14,6 +14,15 @@ Transport.prototype.connect = function( app ){
    var sessionEnable = !!this.options.session;
    var racerStore = this.racerStore;
 
+   // copy koa session to original node request
+   app.use(function *(next) {
+   	var req = this.req || {};
+   	if(!req.session && this.session) {
+   		this.req.session = this.session;
+   	}
+   	yield next
+   });
+
    // web socket
    websockify( app );
 
