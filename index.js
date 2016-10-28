@@ -2,7 +2,6 @@ var   router = require( "koa-router" )(),
       websockify = require( "koa-websocket" ),
       SocketStream = require( "./lib/socket-stream" ),
       BrowserChannelServer = require("browserchannel").server,
-      connect = require("browserchannel/node_modules/connect");
       WebSocket = require('koa-websocket/node_modules/ws');
 
 function Transport( racerStore, options ){
